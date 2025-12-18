@@ -52,10 +52,10 @@ int main()
     load_sounds();
 
     while (!WindowShouldClose()) {
-        BeginDrawing();
 
-        draw();
         update();
+        BeginDrawing();
+        draw();
 
         EndDrawing();
     }

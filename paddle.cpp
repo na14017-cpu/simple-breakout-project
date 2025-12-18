@@ -23,7 +23,7 @@ void move_paddle(const float x_offset)
 {
     float next_paddle_pos_x = paddle_pos.x + x_offset;
     if (is_colliding_with_level_cell({ next_paddle_pos_x, paddle_pos.y }, paddle_size, WALL)) {
-        next_paddle_pos_x = std::round(next_paddle_pos_x);
+        return;;
     }
     paddle_pos.x = next_paddle_pos_x;
 }
