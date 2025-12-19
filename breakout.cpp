@@ -36,8 +36,8 @@ void draw()
 
     draw_level();
     draw_paddle();
-    draw_ball();
     draw_ui();
+    draw_ball();
 }
 
 int main()
@@ -54,7 +54,9 @@ int main()
     while (!WindowShouldClose()) {
 
         update();
+
         BeginDrawing();
+        ClearBackground(BLACK);
         draw();
 
         EndDrawing();

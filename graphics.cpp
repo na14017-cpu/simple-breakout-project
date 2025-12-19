@@ -97,7 +97,7 @@ void derive_graphics_metrics()
     const float level_height = static_cast<float>(current_level.rows) * cell_size;
     shift_to_center = {
         (screen_size.x - level_width) * 0.5f,
-        (screen_size.y - level_height)
+        (screen_size.y - level_height) * 0.5f
     };
 }
 
@@ -151,7 +151,6 @@ void draw_ui()
 
 void draw_level()
 {
-    ClearBackground(BLACK);
 
     for (size_t row = 0; row < current_level.rows; ++row) {
         for (size_t column = 0; column < current_level.columns; ++column) {
@@ -165,6 +164,9 @@ void draw_level()
                 break;
             case BLOCKS:
                 draw_image(block_texture, texture_x_pos, texture_y_pos, cell_size);
+                break;
+            case BLOCKS1:
+                draw_image(block1_texture, texture_x_pos, texture_y_pos, cell_size);
                 break;
             default:;
             }
@@ -181,10 +183,13 @@ void draw_paddle()
 
 void draw_ball()
 {
-    const float texture_x_pos = shift_to_center.x + ball_pos.x * cell_size;
-    const float texture_y_pos = shift_to_center.y + ball_pos.y * cell_size;
-    draw_sprite(ball_sprite, texture_x_pos, texture_y_pos, cell_size);
+    float x = shift_to_center.x + ball_pos.x * cell_size;
+    float y = shift_to_center.y + ball_pos.y * cell_size;
+
+    draw_sprite(ball_sprite, x, y, cell_size);
 }
+
+
 
 void draw_pause_menu()
 {

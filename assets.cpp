@@ -16,10 +16,10 @@ void load_textures()
 {
     wall_texture = LoadTexture("data/images/wall.png");
     void_texture = LoadTexture("data/images/void.png");
-    block_texture = LoadTexture("data/images/block0.png");
-    block1_texture = LoadTexture("data/images/block1.png");
+    block_texture = LoadTexture("data/images/blocks/block0.png");
+    block1_texture = LoadTexture("data/images/blocks/block1.png");
     paddle_texture = LoadTexture("data/images/paddle1.png");
-    ball_sprite = load_sprite("data/images/ball/stone_ball1", ".png", 8, true, 1);
+    ball_sprite = load_sprite("data/images/ball/stoneball", + ".png", 8, true, 0);
 }
 
 void unload_textures()

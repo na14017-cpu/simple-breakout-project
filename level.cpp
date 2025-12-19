@@ -9,6 +9,10 @@
 
 char* current_level_data;
 
+bool is_breakable(char cell) {
+    return cell == BLOCKS || cell == BLOCKS1;
+}
+
 void load_level(const int offset)
 {
     current_level_index += offset;
