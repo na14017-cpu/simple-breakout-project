@@ -19,11 +19,21 @@ void load_textures()
     block_texture = LoadTexture("data/images/blocks/block0.png");
     block1_texture = LoadTexture("data/images/blocks/block1.png");
     paddle_texture = LoadTexture("data/images/paddle1.png");
+    background1_texture = LoadTexture("data/images/backgrounds/background1.png");
+    victory_texture = LoadTexture("data/images/victory.png");
+    defeat_texture = LoadTexture("data/images/defeat.png");
+    pause_texture = LoadTexture("data/images/pause.png");
+    menu_texture = LoadTexture("data/images/menu.png");
     ball_sprite = load_sprite("data/images/ball/stoneball", + ".png", 8, true, 0);
 }
 
 void unload_textures()
 {
+    UnloadTexture(background1_texture);
+    UnloadTexture(menu_texture);
+    UnloadTexture(victory_texture);
+    UnloadTexture(defeat_texture);
+    UnloadTexture(pause_texture);
     UnloadTexture(wall_texture);
     UnloadTexture(block1_texture);
     UnloadTexture(void_texture);

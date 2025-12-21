@@ -12,6 +12,11 @@ inline Texture2D void_texture;
 inline Texture2D paddle_texture;
 inline Texture2D block_texture;
 inline Texture2D block1_texture;
+inline Texture2D background1_texture;
+inline Texture2D defeat_texture;
+inline Texture2D victory_texture;
+inline Texture2D pause_texture;
+inline Texture2D menu_texture;
 inline sprite ball_sprite;
 
 inline Sound win_sound;

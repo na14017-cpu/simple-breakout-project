@@ -33,7 +33,8 @@ void load_level(const int offset)
     for (int row = 0; row < rows; ++row) {
         for (int column = 0; column < columns; ++column) {
             current_level_data[row * columns + column] = levels[current_level_index].data[row * columns + column];
-            if (current_level_data[row * columns + column] == BLOCKS) {
+            if (current_level_data[row * columns + column] == BLOCKS
+                || current_level_data[row * columns + column] == BLOCKS1) {
                 ++current_level_blocks;
             }
         }

@@ -103,12 +103,12 @@ void derive_graphics_metrics()
 
 void draw_menu()
 {
-    ClearBackground(BLACK);
+    draw_image(menu_texture, 0, 0, 1280, 720);
 
     const Text game_title = {
         "Breakout",
-        { 0.50f, 0.50f },
-        200.0f,
+        { 0.50f, 0.60f },
+        100.0f,
         RED,
         4.0f,
         &menu_font
@@ -116,7 +116,7 @@ void draw_menu()
     draw_text(game_title);
 
     const Text game_subtitle = {
-        "Press Enter to Start",
+        " ",
         { 0.50f, 0.65f },
         32.0f,
         WHITE,
@@ -151,7 +151,7 @@ void draw_ui()
 
 void draw_level()
 {
-
+    draw_image(background1_texture, 0, 0, 1280, 832);
     for (size_t row = 0; row < current_level.rows; ++row) {
         for (size_t column = 0; column < current_level.columns; ++column) {
             const char data = current_level.data[row * current_level.columns + column];
@@ -180,23 +180,33 @@ void draw_paddle()
     const float texture_y_pos = shift_to_center.y + paddle_pos.y * cell_size;
     draw_image(paddle_texture, texture_x_pos, texture_y_pos, paddle_size.x * cell_size, paddle_size.y * cell_size);
 }
-
+int frame = 0;
+int frame_count = 0;
+int frame_speed = 20;
 void draw_ball()
 {
     float x = shift_to_center.x + ball_pos.x * cell_size;
     float y = shift_to_center.y + ball_pos.y * cell_size;
 
     draw_sprite(ball_sprite, x, y, cell_size);
+    frame_count++;
+    if (frame_count >= frame_speed) {
+        frame++;
+        if (frame > 3)
+            frame = 0;
+
+        frame_count = 0;
+    }
 }
 
 
 
 void draw_pause_menu()
 {
-    ClearBackground(BLACK);
+    draw_image(pause_texture, 0, 0, 1280, 720);
 
     const Text paused_title = {
-        "Press Escape to Resume",
+        " ",
         { 0.50f, 0.50f },
         32.0f,
         WHITE,
@@ -235,16 +245,16 @@ void animate_victory_menu()
 
 void draw_victory_menu()
 {
-    animate_victory_menu();
+    draw_image(victory_texture, 0, 0, 1280, 720);
 
-    DrawRectangleV({ 0.0f, 0.0f }, { screen_size.x, screen_size.y }, { 0, 0, 0, 50 });
+    animate_victory_menu();
 
     for (const auto& [x, y] : victory_balls_pos) {
         DrawCircleV({ x, y }, victory_balls_size, WHITE);
     }
 
     const Text victory_title = {
-        "Victory!",
+        " ",
         { 0.50f, 0.50f },
         100.0f,
         RED,
@@ -254,7 +264,7 @@ void draw_victory_menu()
     draw_text(victory_title);
 
     const Text victory_subtitle = {
-        "Press Enter to Restart",
+        " ",
         { 0.50f, 0.65f },
         32.0f,
         WHITE,
@@ -263,3 +273,28 @@ void draw_victory_menu()
     };
     draw_text(victory_subtitle);
 }
+void draw_lose_menu()
+{
+    draw_image(defeat_texture, 0, 0, 1280, 720);
+
+    const Text lose_title = {
+        " ",
+        { 0.50f, 0.50f },
+        100.0f,
+        RED,
+        4.0f,
+        &menu_font
+    };
+    draw_text(lose_title);
+
+    const Text lose_subtitle = {
+        " ",
+        { 0.50f, 0.65f },
+        32.0f,
+        WHITE,
+        4.0f,
+        &menu_font
+    };
+    draw_text(lose_subtitle);
+}
+
