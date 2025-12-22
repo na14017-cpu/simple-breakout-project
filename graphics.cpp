@@ -162,12 +162,19 @@ void draw_level()
             case WALL:
                 draw_image(wall_texture, texture_x_pos, texture_y_pos, cell_size);
                 break;
+            case PORTAl: case PORTAL2:
+                draw_image(portal_texture,texture_x_pos, texture_y_pos, cell_size);
+                break;
             case BLOCKS:
                 draw_image(block_texture, texture_x_pos, texture_y_pos, cell_size);
                 break;
             case BLOCKS1:
                 draw_image(block1_texture, texture_x_pos, texture_y_pos, cell_size);
                 break;
+            case COIN:
+                draw_image(coin_texture, texture_x_pos, texture_y_pos, cell_size);
+                break;
+
             default:;
             }
         }

@@ -13,6 +13,7 @@ void update()
     case menu_state:
         if (IsKeyPressed(KEY_ENTER)) {
             game_state = in_game_state;
+            PlaySound(back_sound);
         }
         break;
     case in_game_state:
@@ -46,12 +47,15 @@ void update()
     case victory_state:
         if (IsKeyPressed(KEY_ENTER))  {
             game_state = menu_state;
-            current_level_index = -1;
+
         }
+        break;
     case losing_state:
         if (IsKeyPressed(KEY_ENTER)) {
             game_state = menu_state;
+
         }
+        break;
     default:;
     }
 }

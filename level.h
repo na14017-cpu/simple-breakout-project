@@ -15,6 +15,10 @@ void load_level(int offset = 0);
 void unload_level();
 
 bool is_inside_level(int row, int column);
+bool is_breakable(char cell);
+bool is_colliding_with_breakable(Vector2 pos, Vector2 size);
+
+char& get_colliding_breakable_cell(Vector2 pos, Vector2 size);
 
 char& get_level_cell(size_t row, size_t column);
 void set_level_cell(size_t row, size_t column, char cell);

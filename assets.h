@@ -17,10 +17,16 @@ inline Texture2D defeat_texture;
 inline Texture2D victory_texture;
 inline Texture2D pause_texture;
 inline Texture2D menu_texture;
+inline Texture2D portal_texture;
+inline Texture2D coin_texture;
 inline sprite ball_sprite;
 
+inline Sound sound_rock;
+inline Sound coin_sound;
 inline Sound win_sound;
+inline Sound portal_sound;
 inline Sound lose_sound;
+inline Sound back_sound;
 
 void load_fonts();
 void unload_fonts();
